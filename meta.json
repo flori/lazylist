@@ -1,0 +1,11 @@
+{
+  "author_email":"flori@ping.de",
+  "author":"Florian Frank",
+  "documentation_url":"doc\/index.html",
+  "download_url":"http:\/\/rubyforge.org\/frs\/?group_id=394",
+  "github_url": "http:\/\/github.com\/flori\/lazylist\/tree\/master",
+  "homepage_url": "http:\/\/flori.github.com\/lazylist",
+  "project_name":"Lazylist implementation for Ruby",
+  "project_unixname":"lazylist",
+  "project_url":"http:\/\/rubyforge.org\/projects\/lazylist"
+}

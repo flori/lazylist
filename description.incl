@@ -1,0 +1,77 @@
+<h2>Description</h2>
+<p>
+This class implements lazy lists (or streams) for Ruby. Such lists avoid the
+computation of values which aren't needed for some computation. So it's
+possible to define infinite lists with a limited amount of memory. A value
+that hasn't been used yet is calculated on the fly and saved into the list.
+A value which is used for a second time is computed only once and just read
+out of memory for the second usage.
+</p>
+<p>
+In the newest release I added the <i>list</i> method to Kernel, to shorten the
+creation of lazy lists (especially the more complicated ones). It's possible to
+create an infinite list of ones like that:
+</p>
+<pre>
+ones = list(1) { ones } # => \[... ]
+ones.take 3             # => \[1, 1, 1]
+ones =                  # => \[1,... ]
+</pre>
+<p>
+To create the natural naturals, you can do this (or use LazyList.from(1)):
+</p>
+<pre>
+def from(n = 1)
+  list(n) { from(n + 1) }
+end
+naturals.take 3  # => \[1, 2, 3]
+naturals = from  # => \[1, 2, 3,... ]
+</pre>
+Or shorter:
+<pre>
+naturals = LazyList\[1..Infinity]
+</pre>
+<p>
+To combine the lists, use <b>zip</b>:
+</p>
+<pre>
+naturals_plus_one = naturals.zip(ones) { |x,y| x + y } # => \[2,... ]
+naturals_plus_one.take 3                               # => \[2, 3, 4]
+naturals_plus_one                                      # => \[2, 3, 4,... ]
+</pre>
+An alternative is the <b>build</b> syntax:
+<pre>
+naturals_plus_one = build { x + y }.where :x => naturals, :y => ones # => \[... ]
+naturals_plus_one.take 3                                             # => \[2, 3, 4]
+naturals_plus_one                                                    # => \[2, 3, 4,... ]
+</pre>
+The <b>list</b> syntax with block now supports Haskell-like list comprehensions:
+<pre>
+odds = list { x }.where(:x => naturals) { x % 2 == 1 }               # => \[... ]
+evens = naturals.select { |x| x % 2 == 0 }                           # => \[... ]
+example = list { \[ x, y ] }.where(:x => odds, :y => evens) { y < x } # => \[... ]
+example.take 3                                                       # => \[\[3, 2], \[5, 2], \[5, 4]]
+example                                                              # => \[\[3, 2], \[5, 2], \[5, 4],... ]
+</pre>
+<p>
+With the PI list from examples/pi.rb you can prove some dangerous properties of
+PI:
+</p>
+<pre>
+puts "Proof that PI is the number of the beast"
+p PI.take(10)
+
+def window(l, n, m = 0)
+  list(\[ l.take(n) * '', m ]) { window(l.drop, n, m + 1) }
+end
+w = window(PI, 3)
+index = w.find { |(x, i)| x == '666' and break i }
+puts "Found #{PI.take_span(index, 3)} at #{index}!"
+</pre>
+outputs
+<pre>
+Found 666 at 2440!
+</pre>
+<p>
+Oh, noooo!
+</p>
