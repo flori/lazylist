@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: doc-main.txt [RDoc Documentation]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./doc-main_txt.html">doc-main.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./LazyList.html">LazyList</a></li>
+				
+					<li><a href="./LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+				
+					<li><a href="./LazyList/Enumerable/ObjectMethods.html">LazyList::Enumerable::ObjectMethods</a></li>
+				
+					<li><a href="./LazyList/Exception.html">LazyList::Exception</a></li>
+				
+					<li><a href="./LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+				
+					<li><a href="./LazyList/ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+				
+					<li><a href="./LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+				
+					<li><a href="./LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+					<li><a href="./LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+				
+					<li><a href="./LazyList/Promise.html">LazyList::Promise</a></li>
+				
+					<li><a href="./LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+				
+					<li><a href="./Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h2><a href="LazyList.html">LazyList</a> - Implementation of lazy lists for Ruby</h2>
+<h3>Description</h3>
+<p>
+This class implements lazy lists (or streams) for Ruby. Such lists avoid
+the computation of values which aren&#8217;t needed for some computation.
+So it&#8217;s possible to define infinite lists with a limited amount of
+memory. A value that hasn&#8217;t been used yet is calculated on the fly
+and saved into the list. A value which is used for a second time is
+computed only once and just read out of memory for the second usage.
+</p>
+<h3>Author</h3>
+<p>
+Florian Frank <a href="mailto:flori@ping.de">flori@ping.de</a>
+</p>
+<h3>License</h3>
+<p>
+This is free software; you can redistribute it and/or modify it under the
+terms of the GNU General Public License Version 2 as published by the Free
+Software Foundation: <a
+href="http://www.gnu.org/copyleft/gpl.html">www.gnu.org/copyleft/gpl.html</a>
+</p>
+<h3>Download</h3>
+<p>
+The latest version of this library can be downloaded at
+</p>
+<ul>
+<li><a
+href="http://rubyforge.org/frs?group_id=394">rubyforge.org/frs?group_id=394</a>
+
+</li>
+</ul>
+<p>
+The homepage of this library is located at
+</p>
+<ul>
+<li><a href="http://lazylist.rubyforge.org">lazylist.rubyforge.org</a>
+
+</li>
+</ul>
+<h3>Example</h3>
+<p>
+To compute the square numbers with a lazy list you can define one as
+</p>
+<pre>
+ sq = LazyList.tabulate(1) { |x| x * x }
+</pre>
+<p>
+or in the much nicer list builder syntax:
+</p>
+<pre>
+ sq = list { x * x }.where :x =&gt; 1..Infinity
+</pre>
+<p>
+Now it&#8217;s possible to get the first 10 square numbers by calling <a
+href="LazyList.html#M000056">LazyList#take</a>
+</p>
+<pre>
+ sq.take(10)
+     ===&gt;[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre>
+<p>
+To compute the first 10 square numbers and do something with them you can
+call the each method with:
+</p>
+<pre>
+ sq.each(10) { |x| puts x }
+</pre>
+<p>
+To compute every square number and do something with them you can call the
+&#8220;each&#8221; method without an argument:
+</p>
+<pre>
+ sq.each { |x| puts x }
+</pre>
+<p>
+Notice that calls to each without an argument will not return if applied to
+infinite lazy lists.
+</p>
+<p>
+You can also use indices on lazy lists to get the values at a certain
+range:
+</p>
+<pre>
+ sq[ 0..9 ] or sq[0, 10]
+     ===&gt;[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre>
+<p>
+To spare memory it&#8217;s possible to throw away every element after it
+was fetched:
+</p>
+<pre>
+ sq.take!(1) =&gt; [1]
+ sq.take!(1) =&gt; [4]
+</pre>
+<p>
+Of course it&#8217;s also possible to compute more complex lists like the
+Fibonacci sequence:
+</p>
+<pre>
+ fib = LazyList.tabulate(0) { |x| x &lt; 2 ? 1 : fib[x-2] + fib[x-1] }
+
+ fib[100] =&gt; 573147844013817084101
+</pre>
+<p>
+computes the 99th Fibonacci number. (We always start with index 0.)
+</p>
+<pre>
+ fib[101] =&gt; 927372692193078999176
+</pre>
+<p>
+computes the 100th Fibonacci number. The already computed values are reused
+to compute this result. That&#8217;s a very transparent way to get
+memoization for sequences that require heavy computation.
+</p>
+<p>
+You can also use the zip method to create fib:
+</p>
+<pre>
+ fib = list(1, 1) { fib.zip(fib.drop) { |a, b| a + b } }
+</pre>
+<p>
+Another way to create the Fibonacci sequence with the build method is this:
+</p>
+<pre>
+ fib = list(1, 1) { build { a + b }.where(:a =&gt; fib, :b =&gt; fib.drop(1)) }
+</pre>
+<p>
+You can create lazy lists that are based on arbitrary Enumerables, so can
+for example wrap your passwd file in one pretty easily:
+</p>
+<pre>
+ pw = LazyList[ File.new(&quot;/etc/passwd&quot;) ]
+</pre>
+<p>
+Call grep to find the users root and flori: pw.grep /^(root|flori):/ =>
+[&#8220;root:x:0:0:&#8230;n&#8220;,&#8230; ]
+</p>
+<p>
+In this case the whole passwd file is slurped into the memory. If you use
+</p>
+<pre>
+ pw.find { |x| x =~ /^root:/ } =&gt; &quot;root:x:0:0:root:/root:/bin/bash\n&quot;
+</pre>
+<p>
+instead, only every line until the root line is loaded into the memory.
+</p>
+<p>
+To create more complex lazy lists, you can build them from already existing
+lazy lists.
+</p>
+<p>
+Natural numbers:
+</p>
+<pre>
+ naturals = LazyList.from(1)
+</pre>
+<p>
+Odd Numbers > 100:
+</p>
+<pre>
+ odds = list { x }.where(:x =&gt; naturals) { x % 2 === 1 &amp;&amp; x &gt; 100 }
+</pre>
+<p>
+Alternative definition of square numbers:
+</p>
+<pre>
+ squares = build { odds[0, x].inject(0) { |s, y| s + y } }.where :x =&gt; naturals
+</pre>
+<h3>References</h3>
+<p>
+A very good introduction into lazy lists can be found in the scheme bible
+Structure and Interpretation of Computer Programs (SICP) [<a
+href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%25_sec_3.5">mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%25_sec_3.5</a>]
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+

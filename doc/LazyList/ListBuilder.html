@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: LazyList::ListBuilder</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/lazylist/list_builder_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/list_builder.rb">lib/lazylist/list_builder.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="../Object.html">Object</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000030">::create_build</a></li>
+					
+					<li><a href="#M000031">::create_comprehend</a></li>
+					
+					<li><a href="#M000022">::new</a></li>
+					
+					<li><a href="#M000028">#inspect</a></li>
+					
+					<li><a href="#M000027">#to_s</a></li>
+					
+					<li><a href="#M000023">#where</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../doc-main_txt.html">doc-main.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../LazyList.html">LazyList</a></li>
+				
+					<li><a href="../LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+				
+					<li><a href="../LazyList/Enumerable/ObjectMethods.html">LazyList::Enumerable::ObjectMethods</a></li>
+				
+					<li><a href="../LazyList/Exception.html">LazyList::Exception</a></li>
+				
+					<li><a href="../LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+				
+					<li><a href="../LazyList/ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+				
+					<li><a href="../LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+				
+					<li><a href="../LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+					<li><a href="../LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+				
+					<li><a href="../LazyList/Promise.html">LazyList::Promise</a></li>
+				
+					<li><a href="../LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+				
+					<li><a href="../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">LazyList::ListBuilder</h1>
+
+		<div id="description">
+			<p>
+This class encapsulates a list builder (<a
+href="ListBuilder.html">ListBuilder</a>), that can be transformed into a <a
+href="../LazyList.html">LazyList</a>, by calling <a
+href="ListBuilder.html#M000023">LazyList::ListBuilder#where</a>.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="variables-attribute-method" class="method-detail">
+				<a name="variables"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">variables</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The variable names defined in this list builder.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="transform-attribute-method" class="method-detail">
+				<a name="transform"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">transform</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The transform <a
+href="ListBuilder/ListBuilderProc.html">ListBuilderProc</a> instance of
+this list builder.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="filter-attribute-method" class="method-detail">
+				<a name="filter"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">filter</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The filter <a href="ListBuilder/ListBuilderProc.html">ListBuilderProc</a>
+of this list builder or nil.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="create-build-method" class="method-detail ">
+				<a name="M000030"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_build</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Used to support the build method
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-build-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/list_builder.rb, line 126</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_build</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">new</span>(<span class="ruby-identifier">:do_build</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="create-comprehend-method" class="method-detail ">
+				<a name="M000031"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_comprehend</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Used to evaluate a list comprehension, usually if calling the list method
+with only a block.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-comprehend-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/list_builder.rb, line 132</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_comprehend</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">new</span>(<span class="ruby-identifier">:do_comprehend</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000022"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(mode, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Creates <a href="ListBuilder.html">LazyList::ListBuilder</a> instance.
+<em>mode</em> has to be either :do_build or :do_comprehend.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/list_builder.rb, line 82</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mode</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-ivar">@mode</span> = <span class="ruby-identifier">mode</span>
+      <span class="ruby-ivar">@transform</span> = <span class="ruby-constant">ListBuilderProc</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">:transform</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="inspect-method" class="method-detail method-alias">
+				<a name="M000028"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">inspect</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="ListBuilder.html#M000027">to_s</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="to-s-method" class="method-detail ">
+				<a name="M000027"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_s</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return a (not much) nicer string representation of the list builder.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="to-s-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/list_builder.rb, line 119</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+      <span class="ruby-value str">&quot;#&lt;LazyList::ListBuilder&gt;&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="ListBuilder.html#M000028">inspect</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="where-method" class="method-detail ">
+				<a name="M000023"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">where</span><span
+						class="method-args">(sources = {}, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+This method creates a <a href="../LazyList.html">LazyList</a> instance from
+this list builder, using the <em>sources</em> hash to fetch the variables
+from. <em>sources</em> consists of the variable name and the values, that
+can be <a href="../LazyList.html">LazyList</a> instances or otherwise they
+will be transformed into a <a href="../LazyList.html">LazyList</a> with <a
+href="../LazyList.html">LazyList</a>.[].
+</p>
+<p>
+It also takes a block, to filter the results by a boolean expression.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="where-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/list_builder.rb, line 102</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">where</span>(<span class="ruby-identifier">sources</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-ivar">@variables</span> = []
+      <span class="ruby-identifier">generators</span> = []
+      <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span>, <span class="ruby-identifier">src</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@variables</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">var</span>
+        <span class="ruby-identifier">generators</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">src</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">LazyList</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">src</span> <span class="ruby-operator">:</span> <span class="ruby-constant">LazyList</span>[<span class="ruby-identifier">src</span>])
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-ivar">@filter</span> = <span class="ruby-constant">ListBuilderProc</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">:filter</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-ivar">@filter</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">generators</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-ivar">@mode</span>, <span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">generators</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>RDoc Documentation</title>
+
+	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body class="indexpage">
+
+	
+	<h1>RDoc Documentation</h1>
+
+	
+	<div id="main">
+		<h2><a href="LazyList.html">LazyList</a> - Implementation of lazy lists for Ruby</h2>
+<h3>Description</h3>
+<p>
+This class implements lazy lists (or streams) for Ruby. Such lists avoid
+the computation of values which aren&#8217;t needed for some computation.
+So it&#8217;s possible to define infinite lists with a limited amount of
+memory. A value that hasn&#8217;t been used yet is calculated on the fly
+and saved into the list. A value which is used for a second time is
+computed only once and just read out of memory for the second usage.
+</p>
+<h3>Author</h3>
+<p>
+Florian Frank <a href="mailto:flori@ping.de">flori@ping.de</a>
+</p>
+<h3>License</h3>
+<p>
+This is free software; you can redistribute it and/or modify it under the
+terms of the GNU General Public License Version 2 as published by the Free
+Software Foundation: <a
+href="http://www.gnu.org/copyleft/gpl.html">www.gnu.org/copyleft/gpl.html</a>
+</p>
+<h3>Download</h3>
+<p>
+The latest version of this library can be downloaded at
+</p>
+<ul>
+<li><a
+href="http://rubyforge.org/frs?group_id=394">rubyforge.org/frs?group_id=394</a>
+
+</li>
+</ul>
+<p>
+The homepage of this library is located at
+</p>
+<ul>
+<li><a href="http://lazylist.rubyforge.org">lazylist.rubyforge.org</a>
+
+</li>
+</ul>
+<h3>Example</h3>
+<p>
+To compute the square numbers with a lazy list you can define one as
+</p>
+<pre>
+ sq = LazyList.tabulate(1) { |x| x * x }
+</pre>
+<p>
+or in the much nicer list builder syntax:
+</p>
+<pre>
+ sq = list { x * x }.where :x =&gt; 1..Infinity
+</pre>
+<p>
+Now it&#8217;s possible to get the first 10 square numbers by calling <a
+href="LazyList.html#M000056">LazyList#take</a>
+</p>
+<pre>
+ sq.take(10)
+     ===&gt;[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre>
+<p>
+To compute the first 10 square numbers and do something with them you can
+call the each method with:
+</p>
+<pre>
+ sq.each(10) { |x| puts x }
+</pre>
+<p>
+To compute every square number and do something with them you can call the
+&#8220;each&#8221; method without an argument:
+</p>
+<pre>
+ sq.each { |x| puts x }
+</pre>
+<p>
+Notice that calls to each without an argument will not return if applied to
+infinite lazy lists.
+</p>
+<p>
+You can also use indices on lazy lists to get the values at a certain
+range:
+</p>
+<pre>
+ sq[ 0..9 ] or sq[0, 10]
+     ===&gt;[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre>
+<p>
+To spare memory it&#8217;s possible to throw away every element after it
+was fetched:
+</p>
+<pre>
+ sq.take!(1) =&gt; [1]
+ sq.take!(1) =&gt; [4]
+</pre>
+<p>
+Of course it&#8217;s also possible to compute more complex lists like the
+Fibonacci sequence:
+</p>
+<pre>
+ fib = LazyList.tabulate(0) { |x| x &lt; 2 ? 1 : fib[x-2] + fib[x-1] }
+
+ fib[100] =&gt; 573147844013817084101
+</pre>
+<p>
+computes the 99th Fibonacci number. (We always start with index 0.)
+</p>
+<pre>
+ fib[101] =&gt; 927372692193078999176
+</pre>
+<p>
+computes the 100th Fibonacci number. The already computed values are reused
+to compute this result. That&#8217;s a very transparent way to get
+memoization for sequences that require heavy computation.
+</p>
+<p>
+You can also use the zip method to create fib:
+</p>
+<pre>
+ fib = list(1, 1) { fib.zip(fib.drop) { |a, b| a + b } }
+</pre>
+<p>
+Another way to create the Fibonacci sequence with the build method is this:
+</p>
+<pre>
+ fib = list(1, 1) { build { a + b }.where(:a =&gt; fib, :b =&gt; fib.drop(1)) }
+</pre>
+<p>
+You can create lazy lists that are based on arbitrary Enumerables, so can
+for example wrap your passwd file in one pretty easily:
+</p>
+<pre>
+ pw = LazyList[ File.new(&quot;/etc/passwd&quot;) ]
+</pre>
+<p>
+Call grep to find the users root and flori: pw.grep /^(root|flori):/ =>
+[&#8220;root:x:0:0:&#8230;n&#8220;,&#8230; ]
+</p>
+<p>
+In this case the whole passwd file is slurped into the memory. If you use
+</p>
+<pre>
+ pw.find { |x| x =~ /^root:/ } =&gt; &quot;root:x:0:0:root:/root:/bin/bash\n&quot;
+</pre>
+<p>
+instead, only every line until the root line is loaded into the memory.
+</p>
+<p>
+To create more complex lazy lists, you can build them from already existing
+lazy lists.
+</p>
+<p>
+Natural numbers:
+</p>
+<pre>
+ naturals = LazyList.from(1)
+</pre>
+<p>
+Odd Numbers > 100:
+</p>
+<pre>
+ odds = list { x }.where(:x =&gt; naturals) { x % 2 === 1 &amp;&amp; x &gt; 100 }
+</pre>
+<p>
+Alternative definition of square numbers:
+</p>
+<pre>
+ squares = build { odds[0, x].inject(0) { |s, y| s + y } }.where :x =&gt; naturals
+</pre>
+<h3>References</h3>
+<p>
+A very good introduction into lazy lists can be found in the scheme bible
+Structure and Interpretation of Computer Programs (SICP) [<a
+href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%25_sec_3.5">mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%25_sec_3.5</a>]
+</p>
+
+	</div>
+	
+
+	
+	
+	<h2>Files</h2>
+	<ul>
+		
+			<li class="file"><a href="doc-main_txt.html">doc-main.txt</a></li>
+		
+	</ul>
+	
+
+	<h2>Classes/Modules</h2>
+	<ul>
+		
+		<li class="class"><a href="LazyList.html">LazyList</a></li>
+		
+		<li class="module"><a href="LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+		
+		<li class="module"><a href="LazyList/Enumerable/ObjectMethods.html">LazyList::Enumerable::ObjectMethods</a></li>
+		
+		<li class="class"><a href="LazyList/Exception.html">LazyList::Exception</a></li>
+		
+		<li class="class"><a href="LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+		
+		<li class="class"><a href="LazyList/ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+		
+		<li class="class"><a href="LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+		
+		<li class="module"><a href="LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+		
+		<li class="module"><a href="LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+		
+		<li class="class"><a href="LazyList/Promise.html">LazyList::Promise</a></li>
+		
+		<li class="class"><a href="LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+		
+		<li class="class"><a href="Object.html">Object</a></li>
+		
+	</ul>
+
+	<h2>Methods</h2>
+	<ul>
+		
+			<li><a href="LazyList.html#M000024">::[] &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000013">::const_missing &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ListBuilder.html#M000030">::create_build &mdash; LazyList::ListBuilder</a></li>
+		
+			<li><a href="LazyList/ListBuilder.html#M000031">::create_comprehend &mdash; LazyList::ListBuilder</a></li>
+		
+			<li><a href="LazyList.html#M000009">::empty &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000035">::from &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000025">::from_enum &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000026">::from_queue &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000029">::from_range &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000038">::io &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000037">::iterate &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000034">::new &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList/Promise.html#M000000">::new &mdash; LazyList::Promise</a></li>
+		
+			<li><a href="LazyList/ListBuilder/ListBuilderProc.html#M000014">::new &mdash; LazyList::ListBuilder::ListBuilderProc</a></li>
+		
+			<li><a href="LazyList/ListBuilder.html#M000022">::new &mdash; LazyList::ListBuilder</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000050">::new &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList.html#M000011">::new &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000032">::span &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000033">::tabulate &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000084">#* &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000055">#+ &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000071">#== &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ListBuilder/ListBuilderProc.html#M000020">#[] &mdash; LazyList::ListBuilder::ListBuilderProc</a></li>
+		
+			<li><a href="LazyList.html#M000046">#[] &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/MemoPromise.html#M000003">#__value__ &mdash; LazyList::MemoPromise</a></li>
+		
+			<li><a href="LazyList/Promise.html#M000001">#__value__ &mdash; LazyList::Promise</a></li>
+		
+			<li><a href="LazyList.html#M000053">#append &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ObjectMethods.html#M000092">#build &mdash; LazyList::ObjectMethods</a></li>
+		
+			<li><a href="LazyList.html#M000012">#cached? &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ListBuilder/ListBuilderProc.html#M000015">#call &mdash; LazyList::ListBuilder::ListBuilderProc</a></li>
+		
+			<li><a href="LazyList.html#M000085">#cartesian_product &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000088">#collect &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000076">#combine &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList/ModuleFunctions.html#M000004">#delay &mdash; LazyList::ModuleFunctions</a></li>
+		
+			<li><a href="LazyList.html#M000061">#drop &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000062">#drop! &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000047">#each &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000048">#each! &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000073">#each_with_index &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000010">#empty &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000066">#empty? &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000040">#empty? &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000054">#empty? &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList/Enumerable/ObjectMethods.html#M000090">#end_list &mdash; LazyList::Enumerable::ObjectMethods</a></li>
+		
+			<li><a href="LazyList.html#M000067">#eql? &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000086">#filter &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000083">#find_all &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000057">#first &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ModuleFunctions.html#M000005">#force &mdash; LazyList::ModuleFunctions</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000079">#grep &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000077">#half_product &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000016">#head &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ListBuilder.html#M000028">#inspect &mdash; LazyList::ListBuilder</a></li>
+		
+			<li><a href="LazyList.html#M000072">#inspect &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000063">#last &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000065">#length &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ObjectMethods.html#M000091">#list &mdash; LazyList::ObjectMethods</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000087">#map &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000089">#mapper &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000049">#merge &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/Promise.html#M000002">#method_missing &mdash; LazyList::Promise</a></li>
+		
+			<li><a href="LazyList/ModuleFunctions.html#M000007">#mix &mdash; LazyList::ModuleFunctions</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000068">#partition &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000017">#peek_head &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000019">#peek_tail &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000052">#pop &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000039">#pop &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList/ListBuilder/ListBuilderProc.html#M000021">#prepare_variables &mdash; LazyList::ListBuilder::ListBuilderProc</a></li>
+		
+			<li><a href="LazyList.html#M000081">#product &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000045">#ref &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000080">#reject &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000082">#select &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000044">#set_ref &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000051">#shift &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList/ReadQueue.html#M000036">#shift &mdash; LazyList::ReadQueue</a></li>
+		
+			<li><a href="LazyList.html#M000064">#size &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000069">#sort &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000070">#sort_by &mdash; LazyList::Enumerable</a></li>
+		
+			<li><a href="LazyList.html#M000043">#sublist &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000041">#sublist_range &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000042">#sublist_span &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000018">#tail &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000056">#take &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000060">#take! &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000058">#take_range &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList.html#M000059">#take_span &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ListBuilder.html#M000027">#to_s &mdash; LazyList::ListBuilder</a></li>
+		
+			<li><a href="LazyList.html#M000074">#to_s &mdash; LazyList</a></li>
+		
+			<li><a href="LazyList/ListBuilder.html#M000023">#where &mdash; LazyList::ListBuilder</a></li>
+		
+			<li><a href="LazyList/Enumerable.html#M000075">#zip &mdash; LazyList::Enumerable</a></li>
+		
+	</ul>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>

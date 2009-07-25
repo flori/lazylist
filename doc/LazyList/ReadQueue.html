@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: LazyList::ReadQueue</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/lazylist/enumerator_queue_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/enumerator_queue.rb">lib/lazylist/enumerator_queue.rb</a></li>
+					
+						<li><a href="../lib/lazylist/thread_queue_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/thread_queue.rb">lib/lazylist/thread_queue.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="../Object.html">Object</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000034">::new</a></li>
+					
+					<li><a href="#M000050">::new</a></li>
+					
+					<li><a href="#M000054">#empty?</a></li>
+					
+					<li><a href="#M000040">#empty?</a></li>
+					
+					<li><a href="#M000052">#pop</a></li>
+					
+					<li><a href="#M000039">#pop</a></li>
+					
+					<li><a href="#M000036">#shift</a></li>
+					
+					<li><a href="#M000051">#shift</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../doc-main_txt.html">doc-main.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../LazyList.html">LazyList</a></li>
+				
+					<li><a href="../LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+				
+					<li><a href="../LazyList/Enumerable/ObjectMethods.html">LazyList::Enumerable::ObjectMethods</a></li>
+				
+					<li><a href="../LazyList/Exception.html">LazyList::Exception</a></li>
+				
+					<li><a href="../LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+				
+					<li><a href="../LazyList/ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+				
+					<li><a href="../LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+				
+					<li><a href="../LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+					<li><a href="../LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+				
+					<li><a href="../LazyList/Promise.html">LazyList::Promise</a></li>
+				
+					<li><a href="../LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+				
+					<li><a href="../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">LazyList::ReadQueue</h1>
+
+		<div id="description">
+			<p>
+<a href="ReadQueue.html">ReadQueue</a> is the implementation of an
+read-only queue that only supports <a
+href="ReadQueue.html#M000036">shift</a> and <a
+href="ReadQueue.html#M000040">empty?</a> methods. It&#8217;s used as a
+wrapper to encapsulate enumerables in lazy lists.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000034"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(enumerable)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Creates an <a href="ReadQueue.html">ReadQueue</a> object from an
+enumerable.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/enumerator_queue.rb, line 7</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">enumerable</span>)
+      <span class="ruby-ivar">@enum</span> = <span class="ruby-identifier">enumerable</span>.<span class="ruby-identifier">to_enum</span>
+      <span class="ruby-ivar">@empty</span> = <span class="ruby-keyword kw">false</span>
+      <span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000050"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(enumerable)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Creates an <a href="ReadQueue.html">ReadQueue</a> object from an
+enumerable.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/thread_queue.rb, line 7</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">enumerable</span>)
+      <span class="ruby-ivar">@data</span> = []
+      <span class="ruby-ivar">@producer</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">enumerable</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">old</span>, <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">critical</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">critical</span>, <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">begin</span>
+              <span class="ruby-ivar">@data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+              <span class="ruby-ivar">@consumer</span>.<span class="ruby-identifier">wakeup</span>
+              <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>
+            <span class="ruby-keyword kw">ensure</span>
+              <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">critical</span> = <span class="ruby-identifier">old</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-ivar">@consumer</span>.<span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-keyword kw">ensure</span>
+          <span class="ruby-ivar">@consumer</span>.<span class="ruby-identifier">wakeup</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> <span class="ruby-keyword kw">until</span> <span class="ruby-ivar">@producer</span>.<span class="ruby-identifier">stop?</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="empty--method" class="method-detail ">
+				<a name="M000054"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">empty?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns true if the queue is empty.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="empty--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/thread_queue.rb, line 44</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">old</span>, <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">critical</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">critical</span>, <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-ivar">@consumer</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+          <span class="ruby-ivar">@producer</span>.<span class="ruby-identifier">wakeup</span>
+          <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ThreadError</span>
+          ;
+        <span class="ruby-keyword kw">ensure</span>
+          <span class="ruby-ivar">@consumer</span> = <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">critical</span> = <span class="ruby-identifier">old</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="empty--method" class="method-detail ">
+				<a name="M000040"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">empty?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns true if the queue is empty.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="empty--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/enumerator_queue.rb, line 31</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty?</span>
+      <span class="ruby-operator">!</span><span class="ruby-ivar">@next</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@empty</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="pop-method" class="method-detail method-alias">
+				<a name="M000052"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">pop</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="ReadQueue.html#M000036">shift</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="pop-method" class="method-detail method-alias">
+				<a name="M000039"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">pop</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="ReadQueue.html#M000036">shift</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="shift-method" class="method-detail ">
+				<a name="M000036"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">shift</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Extracts the top element from the queue or nil if the queue is empty.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="shift-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/enumerator_queue.rb, line 14</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">shift</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@empty</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@next</span>
+        <span class="ruby-ivar">@next</span> = <span class="ruby-ivar">@enum</span>.<span class="ruby-identifier">next</span>
+        <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">StopIteration</span>
+      <span class="ruby-ivar">@next</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-ivar">@empty</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="ReadQueue.html#M000039">pop</a>, <a href="ReadQueue.html#M000052">pop</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="shift-method" class="method-detail ">
+				<a name="M000051"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">shift</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Extracts the top element from the queue or nil if the queue is empty.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="shift-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist/thread_queue.rb, line 33</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">shift</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">shift</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

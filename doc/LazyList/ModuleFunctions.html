@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: LazyList::ModuleFunctions</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/lazylist_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist.rb">lib/lazylist.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000004">#delay</a></li>
+					
+					<li><a href="#M000005">#force</a></li>
+					
+					<li><a href="#M000007">#mix</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../doc-main_txt.html">doc-main.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../LazyList.html">LazyList</a></li>
+				
+					<li><a href="../LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+				
+					<li><a href="../LazyList/Enumerable/ObjectMethods.html">LazyList::Enumerable::ObjectMethods</a></li>
+				
+					<li><a href="../LazyList/Exception.html">LazyList::Exception</a></li>
+				
+					<li><a href="../LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+				
+					<li><a href="../LazyList/ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+				
+					<li><a href="../LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+				
+					<li><a href="../LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+					<li><a href="../LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+				
+					<li><a href="../LazyList/Promise.html">LazyList::Promise</a></li>
+				
+					<li><a href="../LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+				
+					<li><a href="../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">LazyList::ModuleFunctions</h1>
+
+		<div id="description">
+			<p>
+This module contains module functions, that are added to <a
+href="../LazyList.html">LazyList</a> and it&#8217;s instances.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="delay-method" class="method-detail ">
+				<a name="M000004"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">delay</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Delay the value of <em>block</em> to a <a href="Promise.html">Promise</a>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="delay-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 58</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delay</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-constant">MemoPromise</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="force-method" class="method-detail ">
+				<a name="M000005"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">force</span><span
+						class="method-args">(obj)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Force the delayed <em>obj</em> to evaluate to its value.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="force-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 63</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">force</span>(<span class="ruby-identifier">obj</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">obj</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Promise</span>
+        <span class="ruby-identifier">force</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">__value__</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">obj</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="mix-method" class="method-detail ">
+				<a name="M000007"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">mix</span><span
+						class="method-args">(*lists)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns a <a href="../LazyList.html">LazyList</a>, that consists of the
+mixed elements of the lists _lists without any special order.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="mix-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 74</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mix</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">lists</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">empty</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">lists</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">first</span> = <span class="ruby-identifier">lists</span>.<span class="ruby-identifier">shift</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">lists</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">first</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">first</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">mix</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">lists</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-constant">LazyList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">first</span>.<span class="ruby-identifier">head</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">t</span> = <span class="ruby-identifier">first</span>.<span class="ruby-identifier">tail</span>
+          <span class="ruby-identifier">lists</span> = <span class="ruby-identifier">lists</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">t</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">mix</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">lists</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

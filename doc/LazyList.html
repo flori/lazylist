@@ -1,0 +1,2324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: LazyList</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./lib/lazylist_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist.rb">lib/lazylist.rb</a></li>
+					
+						<li><a href="./lib/lazylist/list_builder_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/list_builder.rb">lib/lazylist/list_builder.rb</a></li>
+					
+						<li><a href="./lib/lazylist/enumerator_queue_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/enumerator_queue.rb">lib/lazylist/enumerator_queue.rb</a></li>
+					
+						<li><a href="./lib/lazylist/version_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/version.rb">lib/lazylist/version.rb</a></li>
+					
+						<li><a href="./lib/lazylist/thread_queue_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/thread_queue.rb">lib/lazylist/thread_queue.rb</a></li>
+					
+						<li><a href="./lib/lazylist/enumerable_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/lazylist/enumerable.rb">lib/lazylist/enumerable.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="Object.html">Object</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">MODULE</span> <a href="LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+					
+					<li><span class="type">MODULE</span> <a href="LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+					
+					<li><span class="type">MODULE</span> <a href="LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="LazyList/Exception.html">LazyList::Exception</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="LazyList/Promise.html">LazyList::Promise</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000024">::[]</a></li>
+					
+					<li><a href="#M000013">::const_missing</a></li>
+					
+					<li><a href="#M000009">::empty</a></li>
+					
+					<li><a href="#M000035">::from</a></li>
+					
+					<li><a href="#M000025">::from_enum</a></li>
+					
+					<li><a href="#M000026">::from_queue</a></li>
+					
+					<li><a href="#M000029">::from_range</a></li>
+					
+					<li><a href="#M000038">::io</a></li>
+					
+					<li><a href="#M000037">::iterate</a></li>
+					
+					<li><a href="#M000011">::new</a></li>
+					
+					<li><a href="#M000032">::span</a></li>
+					
+					<li><a href="#M000033">::tabulate</a></li>
+					
+					<li><a href="#M000084">#*</a></li>
+					
+					<li><a href="#M000055">#+</a></li>
+					
+					<li><a href="#M000071">#==</a></li>
+					
+					<li><a href="#M000046">#[]</a></li>
+					
+					<li><a href="#M000053">#append</a></li>
+					
+					<li><a href="#M000012">#cached?</a></li>
+					
+					<li><a href="#M000085">#cartesian_product</a></li>
+					
+					<li><a href="#M000061">#drop</a></li>
+					
+					<li><a href="#M000062">#drop!</a></li>
+					
+					<li><a href="#M000047">#each</a></li>
+					
+					<li><a href="#M000048">#each!</a></li>
+					
+					<li><a href="#M000010">#empty</a></li>
+					
+					<li><a href="#M000066">#empty?</a></li>
+					
+					<li><a href="#M000067">#eql?</a></li>
+					
+					<li><a href="#M000057">#first</a></li>
+					
+					<li><a href="#M000077">#half_product</a></li>
+					
+					<li><a href="#M000016">#head</a></li>
+					
+					<li><a href="#M000072">#inspect</a></li>
+					
+					<li><a href="#M000063">#last</a></li>
+					
+					<li><a href="#M000065">#length</a></li>
+					
+					<li><a href="#M000049">#merge</a></li>
+					
+					<li><a href="#M000017">#peek_head</a></li>
+					
+					<li><a href="#M000019">#peek_tail</a></li>
+					
+					<li><a href="#M000081">#product</a></li>
+					
+					<li><a href="#M000045">#ref</a></li>
+					
+					<li><a href="#M000044">#set_ref</a></li>
+					
+					<li><a href="#M000064">#size</a></li>
+					
+					<li><a href="#M000043">#sublist</a></li>
+					
+					<li><a href="#M000041">#sublist_range</a></li>
+					
+					<li><a href="#M000042">#sublist_span</a></li>
+					
+					<li><a href="#M000018">#tail</a></li>
+					
+					<li><a href="#M000056">#take</a></li>
+					
+					<li><a href="#M000060">#take!</a></li>
+					
+					<li><a href="#M000058">#take_range</a></li>
+					
+					<li><a href="#M000059">#take_span</a></li>
+					
+					<li><a href="#M000074">#to_s</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><a class="include" href="LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+				
+				
+					<li><a class="include" href="LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./doc-main_txt.html">doc-main.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./LazyList.html">LazyList</a></li>
+				
+					<li><a href="./LazyList/Enumerable.html">LazyList::Enumerable</a></li>
+				
+					<li><a href="./LazyList/Enumerable/ObjectMethods.html">LazyList::Enumerable::ObjectMethods</a></li>
+				
+					<li><a href="./LazyList/Exception.html">LazyList::Exception</a></li>
+				
+					<li><a href="./LazyList/ListBuilder.html">LazyList::ListBuilder</a></li>
+				
+					<li><a href="./LazyList/ListBuilder/ListBuilderProc.html">LazyList::ListBuilder::ListBuilderProc</a></li>
+				
+					<li><a href="./LazyList/MemoPromise.html">LazyList::MemoPromise</a></li>
+				
+					<li><a href="./LazyList/ModuleFunctions.html">LazyList::ModuleFunctions</a></li>
+				
+					<li><a href="./LazyList/ObjectMethods.html">LazyList::ObjectMethods</a></li>
+				
+					<li><a href="./LazyList/Promise.html">LazyList::Promise</a></li>
+				
+					<li><a href="./LazyList/ReadQueue.html">LazyList::ReadQueue</a></li>
+				
+					<li><a href="./Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">LazyList</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="Identity">Identity</a></dt>
+				
+				<dd class="description"><p>
+<a href="LazyList.html#Identity">Identity</a> lambda expression, mostly
+used as a default.
+</p></dd>
+				
+			
+				<dt><a name="All">All</a></dt>
+				
+				<dd class="description"><p>
+This block returns true.
+</p></dd>
+				
+			
+				<dt><a name="Tuple">Tuple</a></dt>
+				
+				<dd class="description"><p>
+Create an array tuple from argument list.
+</p></dd>
+				
+			
+				<dt><a name="LessThan">LessThan</a></dt>
+				
+				<dd class="description"><p>
+Returns true, if a less than b.
+</p></dd>
+				
+			
+				<dt><a name="SwapTuple">SwapTuple</a></dt>
+				
+				<dd class="description"><p>
+Swaps <em>you</em> and <em>me</em> and returns an Array tuple of both.
+</p></dd>
+				
+			
+				<dt><a name="VERSION">VERSION</a></dt>
+				
+				<dd class="description"><p>
+<a href="LazyList.html">LazyList</a> version
+</p></dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="cached-attribute-method" class="method-detail">
+				<a name="cached"></a>
+				
+				<a name="cached="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">cached</span><span
+						class="attribute-access-type">[W]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Set this to false, if index references into the lazy list shouldn&#8217;t
+be cached for fast access (while spending some memory on this). This value
+defaults to true.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="head-attribute-method" class="method-detail">
+				<a name="head"></a>
+				
+				<a name="head="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">head</span><span
+						class="attribute-access-type">[W]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Returns the value of this element.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="tail-attribute-method" class="method-detail">
+				<a name="tail"></a>
+				
+				<a name="tail="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">tail</span><span
+						class="attribute-access-type">[W]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Writes a tail value.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="M000024"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">[]</span><span
+						class="method-args">(a, n = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns a lazy list which is generated from the <a
+href="LazyList/Enumerable.html">Enumerable</a> a or <a
+href="LazyList.html#M000032">LazyList.span</a>(a, n), if n was given as an
+argument.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 189</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">n</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">case</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-identifier">span</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:to_io</span>)
+      <span class="ruby-identifier">io</span>(<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_io</span>)
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:to_ary</span>)
+      <span class="ruby-identifier">from_queue</span>(<span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_ary</span>)
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Range</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">a</span>
+      <span class="ruby-identifier">from_range</span>(<span class="ruby-identifier">a</span>)
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:each</span>)
+      <span class="ruby-identifier">from_enum</span>(<span class="ruby-identifier">a</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">list</span>(<span class="ruby-identifier">a</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="const-missing-method" class="method-detail ">
+				<a name="M000013"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">const_missing</span><span
+						class="method-args">(id)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+If the constant Empty is requested return a new empty list object.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="const-missing-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 134</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:Empty</span>
+      <span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">super</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="empty-method" class="method-detail ">
+				<a name="M000009"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">empty</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns an empty list.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="empty-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 94</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">empty</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="from-method" class="method-detail ">
+				<a name="M000035"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">from</span><span
+						class="method-args">(n = 0)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns a list of all elements succeeding <em>n</em> (that is created by
+calling the succ method) and starting from <em>n</em>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="from-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 259</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">tabulate</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="from-enum-method" class="method-detail ">
+				<a name="M000025"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">from_enum</span><span
+						class="method-args">(e)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a lazy list from any data structure e which responds to the <a
+href="LazyList.html#M000047">each</a> method.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="from-enum-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 208</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from_enum</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-identifier">from_queue</span> <span class="ruby-constant">ReadQueue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="from-queue-method" class="method-detail ">
+				<a name="M000026"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">from_queue</span><span
+						class="method-args">(rq)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a lazyx list by popping elements from a queue.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="from-queue-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 213</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from_queue</span>(<span class="ruby-identifier">rq</span>)
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">empty</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rq</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">rq</span>.<span class="ruby-identifier">shift</span> }) { <span class="ruby-identifier">from_queue</span>(<span class="ruby-identifier">rq</span>) }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="from-range-method" class="method-detail ">
+				<a name="M000029"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">from_range</span><span
+						class="method-args">(r)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a lazy list from a Range instance <em>r</em>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="from-range-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 219</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from_range</span>(<span class="ruby-identifier">r</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">exclude_end?</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span>
+        <span class="ruby-identifier">empty</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> }) { <span class="ruby-identifier">from_range</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span>.<span class="ruby-identifier">succ</span><span class="ruby-operator">...</span><span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span>) }
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">case</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span>
+        <span class="ruby-identifier">empty</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span>
+        <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> }) { <span class="ruby-identifier">empty</span> }
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span> }) { <span class="ruby-identifier">from_range</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">begin</span>.<span class="ruby-identifier">succ</span><span class="ruby-operator">..</span><span class="ruby-identifier">r</span>.<span class="ruby-identifier">end</span>) }
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="io-method" class="method-detail ">
+				<a name="M000038"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">io</span><span
+						class="method-args">(input, &f)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a lazy list of a give IO-object using a given block or Proc
+object to read from this object.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="io-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 271</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">input</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">f</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">f</span>
+      <span class="ruby-identifier">input</span>.<span class="ruby-identifier">eof?</span> <span class="ruby-value">? </span><span class="ruby-identifier">empty</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">f</span>[<span class="ruby-identifier">input</span>] }) { <span class="ruby-identifier">io</span>(<span class="ruby-identifier">input</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">f</span>) }
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">input</span>.<span class="ruby-identifier">eof?</span> <span class="ruby-value">? </span><span class="ruby-identifier">empty</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">input</span>.<span class="ruby-identifier">readline</span> }) { <span class="ruby-identifier">io</span>(<span class="ruby-identifier">input</span>) }
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="iterate-method" class="method-detail ">
+				<a name="M000037"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">iterate</span><span
+						class="method-args">(i = 0, &f)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a lazy list which iterates over its previous values computing
+something like: f(i), f(f(i)), f(f(f(i))), &#8230;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="iterate-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 265</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">iterate</span>(<span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">f</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">i</span> }) { <span class="ruby-identifier">iterate</span>(<span class="ruby-identifier">f</span>[<span class="ruby-identifier">i</span>], <span class="ruby-operator">&amp;</span><span class="ruby-identifier">f</span>) }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000011"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(head = nil, tail = nil, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Creates a new <a href="LazyList.html">LazyList</a> element. The tail can be
+given either as second argument or as block.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 106</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">head</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">tail</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-ivar">@cached</span> = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-ivar">@ref_cache</span> = {}
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tail</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">LazyList</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span>,
+          <span class="ruby-value str">&quot;Use block xor second argument for constructor&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@head</span>, <span class="ruby-ivar">@tail</span> = <span class="ruby-identifier">head</span>, <span class="ruby-identifier">tail</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">block</span>
+      <span class="ruby-ivar">@head</span>, <span class="ruby-ivar">@tail</span> = <span class="ruby-identifier">head</span>, <span class="ruby-identifier">delay</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@head</span>, <span class="ruby-ivar">@tail</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="span-method" class="method-detail ">
+				<a name="M000032"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">span</span><span
+						class="method-args">(a, n)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a finite lazy list beginning with element a and spanning n
+elements. The data structure members have to support the successor method
+succ.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="span-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 241</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">span</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">a</span> }) { <span class="ruby-identifier">span</span>(<span class="ruby-identifier">a</span>.<span class="ruby-identifier">succ</span>, <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) }
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">empty</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="tabulate-method" class="method-detail ">
+				<a name="M000033"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tabulate</span><span
+						class="method-args">(n = 0, &f)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Generates a lazy list which tabulates every element beginning with n and
+succeding with succ by calling the Proc object f or the given block. If
+none is given the identity function is computed instead.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tabulate-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 252</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">tabulate</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">0</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">f</span>)
+    <span class="ruby-identifier">f</span> = <span class="ruby-constant">Identity</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">f</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">f</span>[<span class="ruby-identifier">n</span>] }) { <span class="ruby-identifier">tabulate</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">succ</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">f</span>) }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="--method" class="method-detail method-alias">
+				<a name="M000084"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">*</span><span
+						class="method-args">(other, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="LazyList.html#M000081">product</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail method-alias">
+				<a name="M000055"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">+</span><span
+						class="method-args">(*other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="LazyList.html#M000053">append</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail method-alias">
+				<a name="M000071"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">==</span><span
+						class="method-args">(other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="LazyList.html#M000067">eql?</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="M000046"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">[]</span><span
+						class="method-args">(n, m = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+If n is a Range every element in this range is returned. If n isn&#8217;t a
+Range object the element at index n is returned. If m is given the next m
+elements beginning the n-th element are returned.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 344</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">m</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">case</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Range</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-identifier">sublist</span>(<span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">m</span>
+      <span class="ruby-identifier">sublist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">m</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">ref</span>(<span class="ruby-identifier">n</span>).<span class="ruby-identifier">head</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="append-method" class="method-detail ">
+				<a name="M000053"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">append</span><span
+						class="method-args">(*other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Append this lazy list to the _*other_ lists, creating a new lists that
+consists of the elements of this list and the elements of the lists other1,
+other2, &#8230; If any of the lists is infinite, the elements of the
+following lists will never occur in the result list.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="append-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 421</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">append</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">other</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">empty</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">other</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">append</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">other</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">head</span> }) { <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">append</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">other</span>) }
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="LazyList.html#M000055">+</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="cached--method" class="method-detail ">
+				<a name="M000012"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">cached?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns true, if index references into the lazy list are cached for fast
+access to the referenced elements.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="cached--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 129</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cached?</span>
+    <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@cached</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="cartesian-product-method" class="method-detail ">
+				<a name="M000085"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">cartesian_product</span><span
+						class="method-args">(*others)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the <a href="LazyList.html#M000085">cartesian_product</a> of this
+<a href="LazyList.html">LazyList</a> and the others as a <a
+href="LazyList.html">LazyList</a> of Array tuples. A block can be given to
+yield to all the created tuples and create a <a
+href="LazyList.html">LazyList</a> out of the block results.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="cartesian-product-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 585</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cartesian_product</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">others</span>) <span class="ruby-comment cmt"># :yields: tuple</span>
+    <span class="ruby-keyword kw">case</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">others</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">block_given?</span> <span class="ruby-value">? </span><span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">map</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">product</span> = <span class="ruby-identifier">others</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">inject</span>(<span class="ruby-identifier">product</span>(<span class="ruby-identifier">others</span>[<span class="ruby-value">0</span>])) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">intermediate</span>, <span class="ruby-identifier">list</span><span class="ruby-operator">|</span> 
+        <span class="ruby-identifier">intermediate</span>.<span class="ruby-identifier">product</span>(<span class="ruby-identifier">list</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">existing</span>, <span class="ruby-identifier">new_element</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">existing</span> <span class="ruby-operator">+</span> [ <span class="ruby-identifier">new_element</span> ]
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-identifier">block</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">product</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">tuple</span><span class="ruby-operator">|</span> <span class="ruby-identifier">block</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">tuple</span>] }
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">product</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="drop-method" class="method-detail ">
+				<a name="M000061"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">drop</span><span
+						class="method-args">(n = 1)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Drops the next n elements and returns the rest of this lazy list. n
+defaults to 1.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="drop-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 467</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">drop</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">each</span>(<span class="ruby-identifier">n</span>) { }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="drop--method" class="method-detail ">
+				<a name="M000062"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">drop!</span><span
+						class="method-args">(n = 1)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Drops the next n elements, destroys them in the lazy list and returns the
+rest of this lazy list. Also see <a href="LazyList.html#M000048">each!</a>
+.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="drop--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 473</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">drop!</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">each!</span>(<span class="ruby-identifier">n</span>) { }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="each-method" class="method-detail ">
+				<a name="M000047"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">each</span><span
+						class="method-args">(n = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Iterates over all elements. If n is given only n iterations are done. If
+self is a finite lazy list each returns also if there are no more elements
+to iterate over.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="each-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 360</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>(<span class="ruby-identifier">n</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">s</span> = <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+        <span class="ruby-identifier">n</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">s</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="each--method" class="method-detail ">
+				<a name="M000048"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">each!</span><span
+						class="method-args">(n = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Similar to <a href="LazyList.html#M000047">LazyList#each</a> but destroys
+elements from past iterations perhaps saving some memory. Try to call
+GC.start from time to time in your block.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="each--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 379</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each!</span>(<span class="ruby-identifier">n</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">s</span> = <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+        <span class="ruby-identifier">n</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-ivar">@head</span>, <span class="ruby-ivar">@tail</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>
+        <span class="ruby-identifier">s</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+        <span class="ruby-ivar">@head</span>, <span class="ruby-ivar">@tail</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">self</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="empty-method" class="method-detail ">
+				<a name="M000010"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">empty</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns an empty list.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="empty-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 99</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty</span>
+    <span class="ruby-ivar">@klass</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>
+    <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="empty--method" class="method-detail ">
+				<a name="M000066"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">empty?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns true if this is the empty lazy list.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="empty--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 492</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">peek_head</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">peek_tail</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="eql--method" class="method-detail ">
+				<a name="M000067"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">eql?</span><span
+						class="method-args">(other)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns true, if this lazy list and the other lazy list consist of only
+equal elements. This is only sensible, if the lazy lists are finite and you
+can spare the memory.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="eql--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 499</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>)
+    <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+    <span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">size</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+    <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_a</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">y</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> }
+    <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="LazyList.html#M000071">==</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="first-method" class="method-detail method-alias">
+				<a name="M000057"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">first</span><span
+						class="method-args">(n = 1)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="LazyList.html#M000056">take</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="half-product-method" class="method-detail ">
+				<a name="M000077"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">half_product</span><span
+						class="method-args">(other, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns one &#8220;half&#8221; of the product of this <a
+href="LazyList.html">LazyList</a> and the <em>other</em>:
+</p>
+<pre>
+ list(1,2,3).half_product(list(1,2)).to_a # =&gt; [[1, 1], [2, 1], [2, 2], [3, 1], [3, 2]]
+</pre>
+<p>
+<em>block</em> can be used to yield to every pair generated and create a
+new list element out of it. It defaults to <a
+href="LazyList.html#Tuple">Tuple</a>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="half-product-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 542</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">half_product</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">block</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Tuple</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">empty</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">mix</span>(
+        <span class="ruby-identifier">delay</span> { <span class="ruby-identifier">zip</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) },
+        <span class="ruby-identifier">delay</span> { <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">half_product</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) }
+      )
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="head-method" class="method-detail ">
+				<a name="M000016"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">head</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the head of this list by computing its value.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="head-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 147</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">head</span>
+    <span class="ruby-ivar">@head</span> = <span class="ruby-identifier">force</span> <span class="ruby-ivar">@head</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="inspect-method" class="method-detail ">
+				<a name="M000072"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">inspect</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Inspects the list as far as it has been computed by returning a string of
+the form [1, 2, 3,&#8230; ].
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="inspect-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 509</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-value str">'[]'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-value str">'['</span>
+    <span class="ruby-identifier">first</span> = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-identifier">s</span> = <span class="ruby-keyword kw">self</span>
+    <span class="ruby-identifier">seen</span> = {}
+    <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-constant">Promise</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">peek_head</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">seen</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">__id__</span>]
+      <span class="ruby-identifier">seen</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">__id__</span>] = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">first</span> = <span class="ruby-keyword kw">false</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">', '</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span>.<span class="ruby-identifier">inspect</span>
+      <span class="ruby-constant">Promise</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">peek_tail</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">break</span>
+      <span class="ruby-identifier">s</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'... '</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">',... '</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">']'</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="LazyList.html#M000074">to_s</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="last-method" class="method-detail ">
+				<a name="M000063"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">last</span><span
+						class="method-args">(n = 1)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Return the last <tt>n</tt> elements of the lazy list. This is only sensible
+if the lazy list is finite of course.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="last-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 479</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">last</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">last</span> <span class="ruby-identifier">n</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="length-method" class="method-detail method-alias">
+				<a name="M000065"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">length</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="LazyList.html#M000064">size</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="merge-method" class="method-detail ">
+				<a name="M000049"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">merge</span><span
+						class="method-args">(other, &compare)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Merges this lazy list with the other. It uses the &amp;compare block to
+decide which elements to place first in the result lazy list. If no compare
+block is given lambda { |a,b| a < b } is used as a default value.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="merge-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 401</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">compare</span>)
+    <span class="ruby-identifier">compare</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">LessThan</span>
+    <span class="ruby-keyword kw">case</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">other</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">compare</span>[<span class="ruby-identifier">head</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">head</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">head</span>) { <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">compare</span>) }
+    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">compare</span>[<span class="ruby-identifier">other</span>.<span class="ruby-identifier">head</span>, <span class="ruby-identifier">head</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">head</span>) { <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">tail</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">compare</span>) }
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">head</span>) { <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">tail</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">compare</span>) }
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="product-method" class="method-detail ">
+				<a name="M000081"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">product</span><span
+						class="method-args">(other, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the (cartesian) product of this <a
+href="LazyList.html">LazyList</a> instance and the <em>other</em>.
+<em>block</em> can be used to yield to every pair generated and create a
+new list element out of it, but it&#8217;s useful to at least return the
+default <a href="LazyList.html#Tuple">Tuple</a> from the block.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="product-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 563</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">product</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">empty</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">other_block</span> =
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>
+          <span class="ruby-identifier">swap</span> <span class="ruby-identifier">block</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">block</span> = <span class="ruby-constant">Tuple</span>
+          <span class="ruby-constant">SwapTuple</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">mix</span>(
+        <span class="ruby-identifier">delay</span> { <span class="ruby-identifier">half_product</span>(<span class="ruby-identifier">other</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)},
+        <span class="ruby-identifier">delay</span> { <span class="ruby-identifier">other</span>.<span class="ruby-identifier">tail</span>.<span class="ruby-identifier">half_product</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">other_block</span>) }
+      )
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="LazyList.html#M000084">*</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="size-method" class="method-detail ">
+				<a name="M000064"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">size</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the size. This is only sensible if the lazy list is finite of
+course.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="size-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 485</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span>,<span class="ruby-operator">|</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="LazyList.html#M000065">length</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="sublist-method" class="method-detail ">
+				<a name="M000043"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sublist</span><span
+						class="method-args">(n, m = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the result of <a href="LazyList.html#M000041">sublist_range</a>(n),
+if <em>n</em> is a Range. The result of <a
+href="LazyList.html#M000042">sublist_span</a>(n, m), if otherwise.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="sublist-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 307</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sublist</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">m</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Range</span>
+      <span class="ruby-identifier">sublist_range</span>(<span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">sublist_span</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">m</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="sublist-range-method" class="method-detail ">
+				<a name="M000041"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sublist_range</span><span
+						class="method-args">(range)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the sublist, constructed from the Range <em>range</em> indexed
+elements, of this lazy list.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="sublist-range-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 281</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sublist_range</span>(<span class="ruby-identifier">range</span>)
+    <span class="ruby-identifier">f</span> = <span class="ruby-identifier">range</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">l</span> = <span class="ruby-identifier">range</span>.<span class="ruby-identifier">exclude_end?</span> <span class="ruby-value">? </span><span class="ruby-identifier">range</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">range</span>.<span class="ruby-identifier">last</span>
+    <span class="ruby-identifier">sublist_span</span>(<span class="ruby-identifier">f</span>, <span class="ruby-identifier">l</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="sublist-span-method" class="method-detail ">
+				<a name="M000042"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sublist_span</span><span
+						class="method-args">(n, m = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the sublist, that spans <em>m</em> elements starting from the
+<em>n</em>-th element of this lazy list, if <em>m</em> was given. If
+<em>m</em> is non­positive, the empty lazy list LazyList::Empty is
+returned.
+</p>
+<p>
+If <em>m</em> wasn&#8217;t given returns the <em>n</em> long sublist
+starting from the first (index = 0) element. If <em>n</em> is
+non­positive, the empty lazy list LazyList::Empty is returned.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="sublist-span-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 294</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sublist_span</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">m</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">m</span>
+      <span class="ruby-identifier">sublist_span</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">l</span> = <span class="ruby-identifier">ref</span>(<span class="ruby-identifier">n</span>)
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">delay</span> { <span class="ruby-identifier">l</span>.<span class="ruby-identifier">head</span> }) { <span class="ruby-identifier">l</span>.<span class="ruby-identifier">tail</span>.<span class="ruby-identifier">sublist_span</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">m</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) }
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">empty</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="tail-method" class="method-detail ">
+				<a name="M000018"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tail</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the next element by computing its value if necessary.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tail-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 162</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tail</span>
+    <span class="ruby-ivar">@tail</span> = <span class="ruby-identifier">force</span> <span class="ruby-ivar">@tail</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="take-method" class="method-detail ">
+				<a name="M000056"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">take</span><span
+						class="method-args">(n = 1)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Takes the next n elements and returns them as an array.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="take-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 436</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">take</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">each</span>(<span class="ruby-identifier">n</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span> }
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="LazyList.html#M000057">first</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="take--method" class="method-detail ">
+				<a name="M000060"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">take!</span><span
+						class="method-args">(n = 1)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Takes the next n elements and returns them as an array. It destroys these
+elements in this lazy list. Also see <a
+href="LazyList.html#M000048">each!</a> .
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="take--source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 459</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">take!</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">each!</span>(<span class="ruby-identifier">n</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span> }
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="take-range-method" class="method-detail ">
+				<a name="M000058"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">take_range</span><span
+						class="method-args">(range)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Takes the <em>range</em> indexes of elements from this lazylist and returns
+them as an array.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="take-range-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 446</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">take_range</span>(<span class="ruby-identifier">range</span>) 
+    <span class="ruby-identifier">range</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ref</span>(<span class="ruby-identifier">i</span>).<span class="ruby-identifier">head</span> }
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="take-span-method" class="method-detail ">
+				<a name="M000059"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">take_span</span><span
+						class="method-args">(n, m)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Takes the m elements starting at index n of this lazy list and returns them
+as an array.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="take-span-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 452</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">take_span</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">m</span>)
+    <span class="ruby-identifier">s</span> = <span class="ruby-identifier">ref</span>(<span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">s</span> <span class="ruby-value">? </span><span class="ruby-identifier">s</span>.<span class="ruby-identifier">take</span>(<span class="ruby-identifier">m</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="to-s-method" class="method-detail method-alias">
+				<a name="M000074"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_s</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="LazyList.html#M000072">inspect</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="protected-instance-method-details" class="method-section section">
+			<h3 class="section-header">Protected Instance Methods</h3>
+
+		
+			<div id="peek-head-method" class="method-detail ">
+				<a name="M000017"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">peek_head</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the head of this list without forcing it.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="peek-head-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 152</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">peek_head</span>
+    <span class="ruby-ivar">@head</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="peek-tail-method" class="method-detail ">
+				<a name="M000019"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">peek_tail</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the tail of this list without forcing it.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="peek-tail-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 167</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">peek_tail</span>
+    <span class="ruby-ivar">@tail</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="ref-method" class="method-detail ">
+				<a name="M000045"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">ref</span><span
+						class="method-args">(n)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the n-th LazyList-<a href="Object.html">Object</a>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="ref-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 322</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ref</span>(<span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ref_cache</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">n</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@ref_cache</span>[<span class="ruby-identifier">n</span>]
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">s</span> = <span class="ruby-keyword kw">self</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">n</span>
+    <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">set_ref</span>(<span class="ruby-identifier">n</span>, <span class="ruby-keyword kw">self</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">s</span>.<span class="ruby-identifier">head</span> <span class="ruby-comment cmt"># force the head</span>
+      <span class="ruby-identifier">s</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tail</span>
+      <span class="ruby-identifier">i</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">set_ref</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">s</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="set-ref-method" class="method-detail ">
+				<a name="M000044"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">set_ref</span><span
+						class="method-args">(n, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="set-ref-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/lazylist.rb, line 315</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_ref</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">cached?</span>
+    <span class="ruby-ivar">@ref_cache</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
