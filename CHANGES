@@ -1,0 +1,56 @@
+2009-07-23 * 0.3.2 * Some cleanup.
+                   * Build a gemspec file.
+                   * Added end_list method to end a lazy list during the
+                     evaluation of a filter predicate.
+2007-11-27 * 0.3.1 * Comron Sattari <comron@gmail.com> reported a bug
+                     concerning false values in a lazy list. This problem
+                     should be corrected now.
+2007-05-05 * 0.3.0 * Major work on the implementation: 
+                      - Supports list comprehensions for infinite list like
+                        Haskell does by offering a simple DSL.
+                      - Added cartesian products to LazyList.
+                     Many thanks to Reginald Braithwaite <reg@braythwayt.com>
+                     for his interesting ideas & email discussion about this
+                     topic. Be sure to check out his blog under
+                     http://weblog.raganwald.com/, where he writes about all
+                     kinds of other interesting stuff.
+                   * A nice side effect of the changes necessary for the
+                     new implementation is that the first value of a list is
+                     not forced until requested. This also causes a bit of
+                     space&time waste, but hardware is getting better and
+                     cheaper, isn't it?
+                   * Now there is more than one Empty object, be careful not to
+                     use equal? to compare them. It's better to use LazyList#empty?
+                     for this.
+                   * Switched from the continuation based ReadQueue to a Thread
+                     based one, that should be a bit faster.
+                   * Better organization of the file structure.
+                   * Added version information.
+2005-12-23 * 0.2.2 * Added append and + (the binary append case) to append lazy
+                     lists to each other.
+2005-12-05 * 0.2.1 * Fixed a documentation bug, reported by Gary Wright <at2002@mac.com>.
+                   * enable/disable index reference cache added.
+                   * LazyList#sublist added to generate sublists that
+                     share elements with their "super" lists.
+2005-10-08 * 0.2.0 * Lots of changes (without backwards compatibility):
+                      - Now the usual methods from the Ruby Enumerable module
+                        should be much better supported.
+                      - In general there are more finite lazy lists returned
+                        from methods (for example: lazylist[a, b] or
+                        lazylist[a..b]) instead of arrays.
+                      - mapper, filter and combine methods give an 'obsoleted'
+                        warning now, you better use map, select, and zip from
+                        now on.
+2005-09-26 * 0.1.3 * Fixed some Ruby 1.9 incompatibilities.
+                   * Added default arguments for drop&take.
+                   * I've decided to pollute the Kernel module with the #list
+                     method. Sorry, if you don't like it. ;)
+2004-09-30 * 0.1.2 * Added combine method.
+                   * The ref method now uses a hash to cache return values.
+                     This is not what I would still call a list datastructure.
+                     It increases memory consumption (as if that would matter
+                     anymore), too. But it speeds up things a great deal, if
+                     you persist on using indexes into a list.
+                   * Rakefile added
+                   * Supports Rubygems now
+2003-09-12 * 0.1.1 * Initial Release

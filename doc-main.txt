@@ -1,0 +1,121 @@
+== LazyList - Implementation of lazy lists for Ruby
+
+=== Description
+
+This class implements lazy lists (or streams) for Ruby. Such lists avoid the
+computation of values which aren't needed for some computation. So it's
+possible to define infinite lists with a limited amount of memory. A value
+that hasn't been used yet is calculated on the fly and saved into the list.
+A value which is used for a second time is computed only once and just read
+out of memory for the second usage.
+
+=== Author
+
+Florian Frank mailto:flori@ping.de
+
+=== License
+
+This is free software; you can redistribute it and/or modify it under the
+terms of the GNU General Public License Version 2 as published by the Free
+Software Foundation: www.gnu.org/copyleft/gpl.html
+
+=== Download
+
+The latest version of this library can be downloaded at
+
+* http://rubyforge.org/frs?group_id=394
+
+The homepage of this library is located at
+
+* http://lazylist.rubyforge.org
+
+=== Example
+
+To compute the square numbers with a lazy list you can define one as
+
+ sq = LazyList.tabulate(1) { |x| x * x }
+
+or in the much nicer list builder syntax:
+
+ sq = list { x * x }.where :x => 1..Infinity
+
+Now it's possible to get the first 10 square numbers by calling
+LazyList#take
+
+ sq.take(10)
+     ===>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+To compute the first 10 square numbers and do something with them you can
+call the each method with:
+
+ sq.each(10) { |x| puts x }
+
+To compute every square number and do something with them you can call the
+"each" method without an argument:
+
+ sq.each { |x| puts x }
+
+Notice that calls to each without an argument will not return if applied to
+infinite lazy lists.
+
+You can also use indices on lazy lists to get the values at a certain range:
+
+ sq[ 0..9 ] or sq[0, 10]
+     ===>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+To spare memory it's possible to throw away every element after it was
+fetched:
+
+ sq.take!(1) => [1]
+ sq.take!(1) => [4]
+
+Of course it's also possible to compute more complex lists like the Fibonacci
+sequence:
+
+ fib = LazyList.tabulate(0) { |x| x < 2 ? 1 : fib[x-2] + fib[x-1] }
+
+ fib[100] => 573147844013817084101
+computes the 99th Fibonacci number. (We always start with index 0.)
+ fib[101] => 927372692193078999176
+computes the 100th Fibonacci number. The already computed values are reused
+to compute this result. That's a very transparent way to get memoization for
+sequences that require heavy computation.
+
+You can also use the zip method to create fib:
+
+ fib = list(1, 1) { fib.zip(fib.drop) { |a, b| a + b } }
+
+Another way to create the Fibonacci sequence with the build method is this:
+
+ fib = list(1, 1) { build { a + b }.where(:a => fib, :b => fib.drop(1)) }
+
+You can create lazy lists that are based on arbitrary Enumerables, so can for
+example wrap your passwd file in one pretty easily:
+
+ pw = LazyList[ File.new("/etc/passwd") ]
+
+Call grep to find the users root and flori:
+pw.grep /^(root|flori):/ => ["root:x:0:0:...\n",... ]
+
+In this case the whole passwd file is slurped into the memory. If
+you use 
+ pw.find { |x| x =~ /^root:/ } => "root:x:0:0:root:/root:/bin/bash\n"
+instead, only every line until the root line is loaded into the memory.
+
+To create more complex lazy lists, you can build them from already existing
+lazy lists.
+
+Natural numbers:
+ naturals = LazyList.from(1)
+
+Odd Numbers > 100:
+ odds = list { x }.where(:x => naturals) { x % 2 === 1 && x > 100 }
+
+Alternative definition of square numbers:
+ squares = build { odds[0, x].inject(0) { |s, y| s + y } }.where :x => naturals
+
+=== References
+
+A very good introduction into lazy lists can be found in the scheme bible
+Structure and Interpretation of Computer Programs (SICP)
+[http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#%25_sec_3.5]

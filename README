@@ -1,0 +1,39 @@
+Installation
+============
+
+Just type into the command line as root:
+
+# ruby install.rb
+
+Or if you prefer to use rake, try:
+
+# rake install
+
+Or if you want to use rubygems just type this and rubygems fetches the gem and
+installs it for you:
+
+# gem install lazylist
+
+Documentation
+=============
+
+The API documentatin of this library is can be produced by typing:
+$ ruby make_doc.rb
+
+Or with rake:
+$ rake doc
+
+You should also look into the files in the examples directory to get an idea
+how this library is used. It is also interesting to examine the tests directory
+for this reason.
+
+Author
+======
+
+Florian Frank <flori@ping.de>
+
+License
+=======
+
+GNU General Public License (GPL), Version 2
+
